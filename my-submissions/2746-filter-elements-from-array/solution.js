@@ -3,12 +3,13 @@
  * @param {Function} fn
  * @return {number[]}
  */
-var filter = function(arr, fn) {
+var filter = function (arr, fn) {
     let filteredArray = [];
-    arr.forEach((item, i) => {
-        if(fn(item, i)) { 
-            filteredArray.push(item); 
+    arr.forEach((item, idx) => {
+        if (fn(item, idx)) {
+            filteredArray.push(item)
         }
-    })
+    });
+
     return filteredArray;
-};
+}
