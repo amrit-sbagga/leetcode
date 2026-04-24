@@ -2,16 +2,27 @@
  * @param {Function} fn
  * @return {Function}
  */
-var once = function (fn) {
-    var count = 0
-    return function (...args) {
-        if (count === 0) {
-            count++
-            return fn(...args)
+// var once = function (fn) {
+//     var count = 0
+//     return function (...args) {
+//         if (count === 0) {
+//             count++
+//             return fn(...args)
+//         }
+//         return undefined;
+//     }
+// };
+
+var once = (fn) => {
+    var count = 0;
+    return (...args) => {
+        if(count === 0){
+            count++;
+            return fn(...args);
         }
         return undefined;
     }
-};
+}
 
 /**
  * let fn = (a,b,c) => (a + b + c)
