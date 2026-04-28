@@ -3,15 +3,26 @@
  * @param {number} t milliseconds
  * @return {Function}
  */
+// var debounce = function (fn, t) {
+//     let timer = null;
+//     return function (...args) {
+//         clearTimeout(timer);
+//         timer = setTimeout(() => {
+//             fn(...args);
+//         }, t)
+//     }
+// };
+
 var debounce = function (fn, t) {
     let timer = null;
+
     return function (...args) {
         clearTimeout(timer);
         timer = setTimeout(() => {
-            fn(...args);
+           fn(...args);
         }, t)
     }
-};
+}
 
 /**
  * const log = debounce(console.log, 100);
