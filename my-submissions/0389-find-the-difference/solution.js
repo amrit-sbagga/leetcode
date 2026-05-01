@@ -11,14 +11,24 @@ var findTheDifference = function (s, t) {
     }
 
     for (let char of t) {
-        map.set(char, (map.get(char) || 0) - 1);
+        const count = (map.get(char) || 0) - 1;
+
+        if (count === -1) {
+            return char;
+        }
+        map.set(char, count);
+
+        // if (map.get(char) === 0) {
+        //     map.delete(char);
+        // }
     }
 
-    // Now this exact syntax works!
-    for (const [k, v] of map) {
-        if (v === -1) {
-            return k;
-        }
-    }
+    //  console.log(map);
+
+    // for (const [k, v] of map) {
+    //     if (v === -1) {
+    //         return k;
+    //     }
+    // }
 
 };
