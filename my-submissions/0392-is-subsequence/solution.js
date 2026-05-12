@@ -19,7 +19,6 @@ var isSubsequence = function(s, t) {
       }
     }
 
-
     return subs === s.length;
 };
 
