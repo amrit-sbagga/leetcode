@@ -3,12 +3,10 @@
  * @return {number}
  */
 var largestAltitude = function(gain) {
-    let previous = 0;
-    let biggest = 0;
-
-    for(let i = 0; i < gain.length; i++){
-        previous += gain[i];
-        if(previous > biggest) biggest = previous;
+    let res = 0, curr = 0;
+    for (const x of gain) {
+        curr += x;
+        res = Math.max(res, curr);
     }
-    return biggest;
-}
+    return res;
+};
