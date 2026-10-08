@@ -2,22 +2,17 @@
  * @param {string} s
  * @return {string}
  */
-var removeOuterParentheses = function (s) {
-    let ans = "";
-    let count = 0;
-
-    for (let i = 0; i < s.length; i++) {
-        if (count === 0 && s[i] === '(') {
-            count++;
-        } else if (s[i] === '(') {
-            count++;
-            ans += s[i]
-        } else if (count === 1 && s[i] === ')') {
-            count--;
+var removeOuterParentheses = function(s) {
+    let res = "";
+    let bal = 0;
+    for (let c of s) {
+        if (c === '(') {
+            if (bal > 0) res += c;
+            bal++;
         } else {
-            count--;
-            ans += s[i];
+            bal--;
+            if (bal > 0) res += c;
         }
     }
-    return ans;
+    return res;
 };
